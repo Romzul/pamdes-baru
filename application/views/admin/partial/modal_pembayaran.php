@@ -55,8 +55,14 @@
                 <div class="col">
                     <div class="form-group tb-point ml-auto">
                         <label><b>Beban Meter</b></label>
-                        <input type="number" name="beban" placeholder="Tulis beban meter" class="form-control"
-                            id="beban" aria-describedby="emailHelp">
+                        <input type="number" class="form-control qty" value="0" id="beban" name="beban">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group tb-point ml-auto">
+                        <label><b>Total Tagihan</b></label>
+                        <input type="number" readonly value="0" name="total_tagihan" class="form-control"
+                            id="total_tagihan">
                     </div>
                 </div>
                 <div class="col">
@@ -74,7 +80,20 @@
                 </div>
             </div>
 
+
+
         </div>
+
+
+
+
+
+
+
+
+
+
+
         </form>
     </div>
 </div>

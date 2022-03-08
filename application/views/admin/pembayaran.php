@@ -71,29 +71,28 @@
                                 <td><?= $a['tahun']; ?></td>
                                 <td><?= $a['beban']; ?>/m<sup>3</sup></td>
                                 <!-- total tagihan bulan ini -->
-                                <td>Rp. <?= ($a['beban']) * $perkubik; ?></td>
-                                <!-- variabel total -->
-                                <?php $total = ($a['beban']) * $perkubik;
-									?>
+                                <td>Rp. <?= $a['total_tagihan']; ?></td>
                                 <td>Rp. <?= $a['bayar']; ?></td>
                                 <!-- penentuan status -->
                                 <td>
                                     <?php
-										if ($total == $a['bayar']) {
+										if ($a['total_tagihan'] == $a['bayar']) {
 											echo '<p style="color:#55ff00;">Lunas</p>';
-										} else if ($a['bayar'] < $total) {
+										} else if ($a['bayar'] < $a['total_tagihan']) {
 											echo '<p style = "color: #ff0000;">Belum Lunas</p>';
 										} else {
 											echo '<p style = "color: #ff0000;">Belum Lunas</p>';
 										} ?></td>
                                 <td>
                                     <button
-                                        <?= $a['bayar'] == $total ? 'class="btn btn-light ml-auto disabled"' : 'class="btn btn-light ml-auto"' ?>
-                                        id="cetakstruk" type="button">Bayar</button>
+                                        <?= $a['bayar'] == $a['total_tagihan'] ? 'class="btn btn-light ml-auto disabled"' : 'class="btn btn-light ml-auto"' ?>
+                                        id="cetakstruk" type="button"><i class="fa-solid fa-money-check-dollar"
+                                            style="color: green"></i></button>
                                     |
-                                    <a <?= $a['bayar'] == $total ? 'class="btn btn-light ml-auto"' : 'class="btn btn-light ml-auto disabled"' ?>
-                                        id="cetakstruk" href="<?= base_url('admin/printpdf/') . $a['id_pembayaran']; ?>"
-                                        type="button">Cetak Struck</a>
+                                    <a <?= $a['bayar'] == $a['total_tagihan'] ? 'class="btn btn-light ml-auto"' : 'class="btn btn-light ml-auto disabled"' ?>
+                                        id=" cetakstruk"
+                                        href="<?= base_url('admin/printpdf/') . $a['id_pembayaran']; ?>"
+                                        type="button"><i class="fa-solid fa-print"></i></a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -139,6 +138,18 @@
                         Batalkan Pembayaran
                     </button>
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
